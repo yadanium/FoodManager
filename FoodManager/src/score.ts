@@ -39,6 +39,7 @@ export function calculateFoodScore(food: Food): number {
   const diffDays = calculateDiffDays(food.expiryDate);
   const storageFactor = STORAGE_FACTOR[food.storage];
   const dangerBonus = calculateDangerBonus(diffDays);
+  const remainingQuantity = food.quantity * (food.remainingRatio / 100);
 
-  return -diffDays * storageFactor + dangerBonus + food.quantity * 0.5;
+  return -diffDays * storageFactor + dangerBonus + remainingQuantity * 0.5;
 }

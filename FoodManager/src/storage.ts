@@ -30,11 +30,27 @@ function isFood(value: unknown): value is Food {
   }
 
   const candidate = value as Partial<Food>;
+  const validRemainingRatio =
+    candidate.remainingRatio === undefined ||
+    (typeof candidate.remainingRatio === "number" &&
+      candidate.remainingRatio >= 0 &&
+      candidate.remainingRatio <= 100);
+
   return (
     typeof candidate.id === "string" &&
     typeof candidate.name === "string" &&
     typeof candidate.expiryDate === "string" &&
     typeof candidate.quantity === "number" &&
+    validRemainingRatio &&
+    (candidate.category === undefined ||
+      candidate.category === "vegetable" ||
+      candidate.category === "meat" ||
+      candidate.category === "fish" ||
+      candidate.category === "dairy" ||
+      candidate.category === "cooked" ||
+      candidate.category === "other") &&
+    (candidate.imageDataUrl === undefined ||
+      typeof candidate.imageDataUrl === "string") &&
     (candidate.storage === "fridge" ||
       candidate.storage === "frozen" ||
       candidate.storage === "room")

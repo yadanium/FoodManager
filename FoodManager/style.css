@@ -63,7 +63,7 @@ body {
 .food-item {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
@@ -84,7 +84,9 @@ body {
 .food-actions {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 8px;
+  justify-content: flex-end;
 }
 
 .tag {
@@ -122,6 +124,43 @@ button {
 
 button:hover {
   opacity: 0.92;
+}
+
+button.secondary {
+  background: #f3f4f6;
+  color: #111827;
+  border-color: #d1d5db;
+}
+
+.hint {
+  color: #4b5563;
+  font-size: 0.85rem;
+}
+
+.ratio-control {
+  display: grid;
+  gap: 6px;
+  margin-top: 8px;
+  font-size: 0.9rem;
+}
+
+.ratio-control input[type="range"] {
+  width: 100%;
+}
+
+.preview-image,
+.food-thumb {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid #e5e7eb;
+}
+
+.preview-image {
+  width: 100%;
+  max-width: 220px;
+  height: 140px;
 }
 
 .empty {
