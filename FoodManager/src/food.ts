@@ -15,6 +15,10 @@ export interface Food {
   remainingRatio: number;
   storage: StorageType;
   category: FoodCategory;
+  quantityUnit: string;
+  iconEmoji: string;
+  createdAt: string;
+  updatedAt: string;
   imageDataUrl?: string;
 }
 
@@ -25,10 +29,15 @@ export interface CreateFoodInput {
   remainingRatio?: number;
   storage: StorageType;
   category: FoodCategory;
+  quantityUnit: string;
+  iconEmoji?: string;
+  createdAt?: string;
+  updatedAt?: string;
   imageDataUrl?: string;
 }
 
 export function createFood(input: CreateFoodInput): Food {
+  const now = new Date().toISOString();
   return {
     id: crypto.randomUUID(),
     name: input.name.trim(),
@@ -37,6 +46,10 @@ export function createFood(input: CreateFoodInput): Food {
     remainingRatio: input.remainingRatio ?? 100,
     storage: input.storage,
     category: input.category,
+    quantityUnit: input.quantityUnit,
+    iconEmoji: input.iconEmoji ?? "🥫",
+    createdAt: input.createdAt ?? now,
+    updatedAt: input.updatedAt ?? now,
     imageDataUrl: input.imageDataUrl,
   };
 }

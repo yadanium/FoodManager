@@ -63,11 +63,43 @@ body {
 .food-item {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   gap: 10px;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   padding: 10px;
+}
+
+.food-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.food-icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+}
+
+.food-emoji {
+  font-size: 1.6rem;
+}
+
+.food-open-button {
+  border: none;
+  padding: 0;
+  background: none;
+  color: #111827;
+  text-align: left;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.food-open-button:hover {
+  text-decoration: underline;
 }
 
 .food-name {
@@ -132,20 +164,19 @@ button.secondary {
   border-color: #d1d5db;
 }
 
+button.danger {
+  background: #991b1b;
+}
+
+.quantity-row {
+  display: grid;
+  grid-template-columns: 1fr 90px;
+  gap: 8px;
+}
+
 .hint {
   color: #4b5563;
   font-size: 0.85rem;
-}
-
-.ratio-control {
-  display: grid;
-  gap: 6px;
-  margin-top: 8px;
-  font-size: 0.9rem;
-}
-
-.ratio-control input[type="range"] {
-  width: 100%;
 }
 
 .preview-image,
@@ -161,6 +192,16 @@ button.secondary {
   width: 100%;
   max-width: 220px;
   height: 140px;
+}
+
+.emoji-preview {
+  width: 72px;
+  height: 72px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
 }
 
 .empty {

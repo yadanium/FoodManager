@@ -41,6 +41,10 @@ function isFood(value: unknown): value is Food {
     typeof candidate.name === "string" &&
     typeof candidate.expiryDate === "string" &&
     typeof candidate.quantity === "number" &&
+    (candidate.quantityUnit === undefined || typeof candidate.quantityUnit === "string") &&
+    (candidate.iconEmoji === undefined || typeof candidate.iconEmoji === "string") &&
+    (candidate.createdAt === undefined || typeof candidate.createdAt === "string") &&
+    (candidate.updatedAt === undefined || typeof candidate.updatedAt === "string") &&
     validRemainingRatio &&
     (candidate.category === undefined ||
       candidate.category === "vegetable" ||
