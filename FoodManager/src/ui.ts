@@ -298,7 +298,7 @@ function bindHomeEvents(root: HTMLDivElement, state: AppState): void {
     if (template) {
       categoryInput.value = template.category;
       quantityUnitInput.value = template.quantityUnit;
-      if (!nameInput.dataset.editedQuantity) {
+      if (!quantityInput.dataset.editedQuantity) {
         quantityInput.value = String(template.defaultQuantity);
       }
     }
@@ -501,12 +501,6 @@ function renderFoodListItem(food: Food): string {
       <span class="tag ${getUrgencyClass(diffDays)}">${CATEGORY_LABELS[food.category]}</span>
     </li>
   `;
-}
-
-function renderTemplateOptions(templates: IngredientTemplate[]): string {
-  return templates
-    .map((item) => `<option value="${escapeHtml(item.name)}"></option>`)
-    .join("");
 }
 
 function renderCategoryOptions(selected: FoodCategory): string {
